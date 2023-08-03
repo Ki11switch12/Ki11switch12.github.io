@@ -24,13 +24,9 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <!-- <meta http-equiv="refresh" content="2" /> -->
+
     <title>GSAP Test</title>
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
-      }
-    </style>
+
     <style>
       html {
         scroll-behavior: smooth;
@@ -205,44 +201,31 @@
       }
 
       form {
-      font-size: 20px;
-      text-align: left; 
-     }
-      form input{
+        font-size: 20px;
+        text-align: left;
+        margin-bottom: 30px;
+        margin-right: 30px;
+      }
+      form input {
         border-radius: 15px;
         font-family: "Agdasima", sans-serif;
-        font-size:20px;
+        font-size: 20px;
       }
-      form select{
+      form select {
         border-radius: 15px;
         font-family: "Agdasima", sans-serif;
         font-size: 20px;
       }
 
-
-      
-      input[type="text"],
-      select {
-        width: 75%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: none;
-        
-      }
-      
-      /* input[type="text"],
-       {
-       
-      } */
       input[type="submit"] {
         background-color: #141414;
         color: #fff;
         padding: 10px;
         border: none;
         cursor: pointer;
-        border-radius: 5px; /* Rounded corners for the submit button */
-        margin-top: 10px; /* Add space above the submit button */
-        display: block; /* Center the submit button */
+        border-radius: 5px;
+        margin-top: 10px;
+        display: block;
         margin-left: auto;
         margin-right: auto;
       }
@@ -308,6 +291,16 @@
         .section4 .content4 {
           flex-direction: column;
         }
+
+        form {
+          font-size: 20px;
+          text-align: left;
+          margin-bottom: 30px;
+          margin-right: 30px;
+        }
+        .form-control {
+          min-width: 80vw;
+        }
       }
     </style>
   </head>
@@ -372,65 +365,60 @@
     <div class="section4">
       <div class="content4">
         <div class="column">
-          <div class="column">
-            <h1>Contact Me</h1>
-        
-      
-      <form name="form1" action="#">
-        <br>
-        <label for="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Enter your name"
-          required
-        />
+          <h1>Contact Me</h1>
 
-        <br>
-        <label for="email">Email:</label>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          placeholder="Enter your email"
-          required
-        />
-        <br>
+          <form>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id=" "
+                placeholder="email@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="name"
+                class="form-control"
+                id=" "
+                placeholder="Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1"
+                >Select a type of service</label
+              >
+              <select class="form-control" id=" ">
+                <option>Consultation</option>
+                <option>Graphic Design</option>
+                <option>React Development</option>
+                <option>Web Design</option>
+                <option>Backend Management</option>
+              </select>
+            </div>
 
-        <label for="subject">Type of Request:</label>
-        <select id="subject" name="subject">
-          <option value="math">Grapic Design</option>
-          <option value="science">Web Development</option>
-          <option value="english">Freelancing</option>
-          
-        </select>
-<!-- 
-        <label for="grade">Type</label>
-        <select id="grade" name="grade">
-          <option value="1">Urgent</option>
-          <option value="2">Important</option>
-          <option value="3">Regular</option>
-          
-        </select> -->
-<br>
-        <input type="submit" value="Submit" onclick="validateEmail(document.form1.email)" />
+            <div class="form-group">
+              <label for="textarea">Example textarea</label>
+              <textarea class="form-control" id=" " rows="2"></textarea>
+            </div>
+          </form>
+        </div>
 
-
-        
-      </form>
-    </div>
-
-    
-    </div>
-          <div class="column">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores libero nihil fugiat, quidem incidunt nam modi omnis
-              cupiditate nulla quaerat sapiente sunt eum iusto magni. Ipsum
-              incidunt earum temporibus quo.
-            </p>
-          </div>
+        <div class="column">
+          <p>
+            We are committed to providing you with the best quality programming
+            and design services. Our team of skilled professionals is dedicated
+            to delivering top-notch solutions tailored to meet your specific
+            needs. Whether you require cutting-edge software development,
+            innovative web design, or robust mobile applications, we have the
+            expertise to exceed your expectations. With a strong focus on
+            quality, reliability, and customer satisfaction, we strive to
+            deliver exceptional results that will elevate your business to new
+            heights. Trust us to handle your programming and design requirements
+            with utmost professionalism and attention to detail.
+          </p>
         </div>
       </div>
     </div>
@@ -441,7 +429,6 @@
         <a href="/snake/index.html"> <p>Play a Game</p></a>
 
         <br /><br />
-
 
         <p>
           &copy; 2023 Sabih Qureshi. <br />
@@ -501,9 +488,8 @@
         },
       });
 
-
       function validateEmail(inputText) {
-        var mailFormat =  /\S+@\S+\.\S+/;
+        var mailFormat = /\S+@\S+\.\S+/;
         if (inputText.value.match(mailFormat)) {
           alert("Valid address!");
           return true;
@@ -511,7 +497,7 @@
           alert("Invalid address!");
           return false;
         }
-}
+      }
     </script>
   </body>
 </html>
