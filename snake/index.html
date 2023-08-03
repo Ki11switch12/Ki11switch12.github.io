@@ -3,22 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Snake Game</title>
     <style>
       body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
+        font-family: oswald, sans-serif;
       }
       canvas {
+        background-color: white;
         border: 1px solid black;
+      }
+
+      .container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        padding-top: 15px;
+      }
+      #home:hover {
+        color: white;
+      }
+      #scoreCounter {
+        padding: 20px;
+      }
+      .header {
+        background-color: black;
+        width: 100vw;
+        color: white;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 1px;
+      }
+      .footer {
+        background-color: black;
+
+        font-family: oswald, sans-serif;
+        width: 100%;
+        padding: 7px;
+        position: fixed;
+        bottom: 0px;
+        display: flex;
+      }
+
+      .links {
+        display: flex;
+        justify-content: space-between;
+        color: gray;
+        font-family: oswald, sans-serif;
+        width: 100%;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      a {
+        color: gray;
+        transition-duration: 0.2s;
+      }
+      a:hover {
+        color: white;
       }
     </style>
   </head>
   <body>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <div class="header"><p>Snake Game</p></div>
+    <div class="container">
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+      <span id="scoreCounter">Score: 0</span>
+    </div>
+
+    <div class="footer">
+      <div class="links">
+        <a href="">High Score:</a>
+        <a href=" "> Sabih Qureshi &copy 2023 </a>
+        <span id="home"><a href="/index.html">Go to home</a></span>
+      </div>
+    </div>
+
     <script src="snake.js"></script>
   </body>
 </html>
