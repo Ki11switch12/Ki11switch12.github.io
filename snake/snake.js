@@ -9,6 +9,8 @@ const FPS = 10;
 
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+let score = 0;
+const scoreCounter = document.getElementById("scoreCounter");
 
 class Snake {
   constructor() {
@@ -96,9 +98,11 @@ function update() {
   if (collision === "food") {
     snake.grow();
     food.randomizePosition();
+    score++;
+    scoreCounter.textContent = "Score: " + score;
   } else if (collision) {
     clearInterval(gameLoop);
-    alert("Game Over!");
+    alert("Game Over! Your final score is: " + score);
     return;
   }
 
