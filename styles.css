@@ -108,7 +108,7 @@ body {
   display: flex;
   padding-left: 40px;
   padding-right: 40px;
-
+  padding-top: 30px;
   padding-bottom: 30px;
   justify-content: center;
   background-color: #cecece;
@@ -130,6 +130,7 @@ body {
   display: flex;
   padding-left: 40px;
   padding-right: 40px;
+  padding-top: 30px;
   padding-bottom: 40px;
   align-items: center;
   justify-content: center;
@@ -151,6 +152,7 @@ body {
   display: flex;
   padding-left: 40px;
   padding-right: 40px;
+  padding-top: 30px;
   padding-top: 20px;
   align-items: center;
   justify-content: center;
