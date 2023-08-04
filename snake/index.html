@@ -20,6 +20,15 @@
       body {
         font-family: oswald, sans-serif;
       }
+
+      .header {
+        background-color: black;
+        width: 100vw;
+        color: white;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 1px;
+      }
       canvas {
         background-color: white;
         border: 1px solid black;
@@ -41,14 +50,7 @@
       #scoreCounter {
         padding: 20px;
       }
-      .header {
-        background-color: black;
-        width: 100vw;
-        color: white;
-        text-align: center;
-        padding-top: 10px;
-        padding-bottom: 1px;
-      }
+
       .footer {
         background-color: black;
 
@@ -77,10 +79,50 @@
       a:hover {
         color: white;
       }
+
+      .modal-content {
+        text-align: center;
+      }
+      .modal-footer {
+        text-align: center;
+      }
+      .modal-dialog {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 90vh;
+      }
     </style>
   </head>
   <body>
     <div class="header"><p>Snake Game</p></div>
+
+    <div id="gameOverModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+            <h4 class="modal-title">Game Over!</h4>
+          </div>
+          <div class="modal-body">
+            <p>Your final score is: <span id="finalScore"></span></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-default"
+              data-dismiss="modal"
+              onclick="refreshGame()"
+            >
+              Play Again
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <canvas id="gameCanvas" width="400" height="400"></canvas>
       <span id="scoreCounter">Score: 0</span>

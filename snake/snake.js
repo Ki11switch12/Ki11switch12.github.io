@@ -11,6 +11,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 let score = 0;
 const scoreCounter = document.getElementById("scoreCounter");
+let isGameOver = false;
 
 class Snake {
   constructor() {
@@ -92,6 +93,10 @@ const snake = new Snake();
 let food = new Food();
 
 function update() {
+  if (isGameOver) {
+    return;
+  }
+
   snake.move();
 
   const collision = snake.checkCollision(food.position);
@@ -102,7 +107,7 @@ function update() {
     scoreCounter.textContent = "Score: " + score;
   } else if (collision) {
     clearInterval(gameLoop);
-    alert("Game Over! Your final score is: " + score);
+    showGameOverModal();
     return;
   }
 
@@ -112,6 +117,10 @@ function update() {
 }
 
 document.addEventListener("keydown", (event) => {
+  if (isGameOver) {
+    return;
+  }
+
   switch (event.key) {
     case "ArrowUp":
       snake.changeDirection(0, -1);
@@ -129,3 +138,22 @@ document.addEventListener("keydown", (event) => {
 });
 
 const gameLoop = setInterval(update, 1000 / FPS);
+
+function showGameOverModal() {
+  const finalScoreElement = document.getElementById("finalScore");
+  finalScoreElement.textContent = score;
+  $("#gameOverModal").modal("show");
+}
+
+function refreshGame() {
+  score = 0;
+  scoreCounter.textContent = "Score: " + score;
+  snake.body = [{ x: GRID_WIDTH / 2, y: GRID_HEIGHT / 2 }];
+  snake.direction = RIGHT;
+  food.randomizePosition();
+
+  clearInterval(gameLoop);
+  gameLoop = setInterval(update, 1000 / FPS);
+
+  $("#gameOverModal").modal("hide");
+}
